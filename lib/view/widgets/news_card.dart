@@ -1,4 +1,5 @@
 import 'package:daily_things/controller/home_screen_controller.dart';
+import 'package:daily_things/view/widgets/view_details.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -48,19 +49,19 @@ class NewsCard extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              // Navigator.push(
-              //     context,
-              //     MaterialPageRoute(
-              //       builder: (context) => NewsViewScreen(
-              //         title: title,
-              //         description: description,
-              //         imageUrl: imageUrl,
-              //         date: date,
-              //         contant: contant,
-              //         sourceName: sourceName,
-              //         url: url,
-              //       ),
-              //     ));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => NewsViewScreen(
+                      title: title,
+                      description: description,
+                      imageUrl: imageUrl,
+                      date: date,
+                      contant: contant,
+                      sourceName: sourceName,
+                      url: url,
+                    ),
+                  ));
             },
             child: Column(
               children: [

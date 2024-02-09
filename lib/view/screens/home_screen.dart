@@ -25,7 +25,11 @@ class _HomeScreenState extends State<HomeScreen> {
     HomeScreenController provider = Provider.of<HomeScreenController>(context);
     return Scaffold(
         appBar: AppBar(
-          title: Text('News Today'),
+          title: Text(
+            'News Today',
+            style: TextStyle(color: Colors.black),
+          ),
+          centerTitle: true,
           titleTextStyle: TextStyle(fontWeight: FontWeight.w700),
           actions: [IconButton(onPressed: () {}, icon: Icon(Icons.search))],
         ),
@@ -38,19 +42,24 @@ class _HomeScreenState extends State<HomeScreen> {
                           title: provider.newsModel.articles![index].title
                               .toString(),
                           description: provider
-                              .newsModel.articles?[index].description
-                              .toString() ?? '',
+                                  .newsModel.articles?[index].description
+                                  .toString() ??
+                              '',
                           date: provider.newsModel.articles![index].publishedAt,
                           imageUrl: provider
-                              .newsModel.articles?[index].urlToImage
-                              .toString()?? '',
+                                  .newsModel.articles?[index].urlToImage
+                                  .toString() ??
+                              '',
                           contant: provider.newsModel.articles?[index].content
-                              .toString()?? '',
-                          sourceName: provider.newsModel.articles?[index].source!.name
-                              .toString()?? '',
+                                  .toString() ??
+                              '',
+                          sourceName: provider
+                                  .newsModel.articles?[index].source!.name
+                                  .toString() ??
+                              '',
                           url: provider.newsModel.articles?[index].url
-                              .toString()?? '',
-
+                                  .toString() ??
+                              '',
                         ),
                     separatorBuilder: (context, index) => Divider(
                           height: 20,

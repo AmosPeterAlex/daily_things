@@ -13,7 +13,7 @@ class MainPage extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: Provider.of<BottomNavController>(context).selectedIndex,
           onTap: Provider.of<BottomNavController>(context, listen: false).onItemTap,
-          items: [
+          items: const[
             BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home'),
             BottomNavigationBarItem(icon: Icon(Icons.category),label: 'Category'),
             BottomNavigationBarItem(icon: Icon(Icons.search),label: 'Search'),
@@ -21,3 +21,6 @@ class MainPage extends StatelessWidget {
     );
   }
 }
+/*
+Hide This Bottom Nav Bar on Scroll
+ */
