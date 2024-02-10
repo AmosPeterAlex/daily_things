@@ -10,14 +10,17 @@ class MainPage extends StatelessWidget {
     return Scaffold(
       body: Provider.of<BottomNavController>(context)
           .myPages[Provider.of<BottomNavController>(context).selectedIndex],
+      //Bottomnavigation bar fluttergems il ninu eduth idenm
       bottomNavigationBar: BottomNavigationBar(
-          currentIndex: Provider.of<BottomNavController>(context).selectedIndex,
-          onTap: Provider.of<BottomNavController>(context, listen: false).onItemTap,
-          items: const[
-            BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home'),
-            BottomNavigationBarItem(icon: Icon(Icons.category),label: 'Category'),
-            BottomNavigationBarItem(icon: Icon(Icons.search),label: 'Search'),
-          ]),
+        currentIndex: Provider.of<BottomNavController>(context).selectedIndex,
+        onTap:
+            Provider.of<BottomNavController>(context, listen: false).onItemTap,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.category), label: 'Category'),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+        ],
+      ),
     );
   }
 }

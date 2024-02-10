@@ -76,13 +76,14 @@ class NewsCard extends StatelessWidget {
                     Text(
                         "$sourceName | ${DateFormat('dd/MM/yyyy').format(date!).toString() ?? ""}"),
                     IconButton(
-                        onPressed: () {
-                          String newsToShare = '$title\n $description \n$url';
-                          Provider.of<HomeScreenController>(context,
-                                  listen: false)
-                              .shareText(textToShare: newsToShare);
-                        },
-                        icon: const Icon(Icons.share))
+                      onPressed: () {
+                        String newsToShare = '$title\n $description \n$url';
+                        Provider.of<HomeScreenController>(context,
+                                listen: false)
+                            .shareText(textToShare: newsToShare);
+                      },
+                      icon: const Icon(Icons.share),
+                    )
                   ],
                 )
               ],

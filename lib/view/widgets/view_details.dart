@@ -4,6 +4,9 @@ import 'package:provider/provider.dart';
 
 import '../../controller/home_screen_controller.dart';
 
+/*
+This Screen appears when each news is clicked
+ */
 class NewsViewScreen extends StatelessWidget {
   const NewsViewScreen(
       {super.key,
@@ -27,8 +30,8 @@ class NewsViewScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
+        // backgroundColor: Colors.red,
+        // elevation: 5,
         iconTheme: const IconThemeData(color: Color(0xff6A3DE8), size: 30),
       ),
       body: Padding(
@@ -63,7 +66,7 @@ class NewsViewScreen extends StatelessWidget {
                         image: NetworkImage(imageUrl), fit: BoxFit.cover)),
               ),
               Text(
-                description ,
+                description,
                 style:
                     const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
               ),

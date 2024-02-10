@@ -25,26 +25,39 @@ class _SearchScreenState extends State<SearchScreen> {
         Provider.of<SearchScreenController>(context);
     return Scaffold(
       body: SafeArea(
-          child: Padding(
-        padding: const EdgeInsets.all(20),
         child: Column(
           children: [
+            Text(
+              'Discover',
+              style: TextStyle(
+                  fontWeight: FontWeight.w700, letterSpacing: .2, fontSize: 30),
+            ),
+            Text(
+              'News from all around the Globe',
+              style: TextStyle(
+                  fontWeight: FontWeight.w400,
+                  fontSize: 12,
+                  letterSpacing: .4,
+                  wordSpacing: .1),
+            ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              // mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 SizedBox(
                   height: 45,
-                  width: MediaQuery.sizeOf(context).width * 2 / 3,
+                  width: MediaQuery.sizeOf(context).width * .64,
                   child: TextField(
                     controller: textController,
                     decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.search),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(
-                            color: Color(0xff6A3DE8), width: 3),
+                        borderSide:
+                            const BorderSide(color: Color(0xff6A3DE8), width: 3),
                       ),
                     ),
                   ),
@@ -52,22 +65,20 @@ class _SearchScreenState extends State<SearchScreen> {
                 const SizedBox(
                   height: 20,
                 ),
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      provider.searchData(
-                        searchText: textController.text.toLowerCase(),
-                      );
-                      FocusManager.instance.primaryFocus?.unfocus();
-                    },
-                    child: Text(
-                      "Search",
-                      style: TextStyle(color: Colors.white, fontSize: 13),
-                    ),
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStatePropertyAll(
-                        Color(0xff6A3DE8),
-                      ),
+                ElevatedButton(
+                  onPressed: () {
+                    provider.searchData(
+                      searchText: textController.text.toLowerCase(),
+                    );
+                    FocusManager.instance.primaryFocus?.unfocus();
+                  },
+                  child: Text(
+                    "Search",
+                    style: TextStyle(color: Colors.white, fontSize: 13),
+                  ),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStatePropertyAll(
+                      Color(0xff6A3DE8),
                     ),
                   ),
                 )
@@ -81,28 +92,27 @@ class _SearchScreenState extends State<SearchScreen> {
                     )
                   : ListView.separated(
                       itemBuilder: (context, index) => NewsCard(
-                          title:
-                              provider.newsModel?.articles?[index].title ?? "",
+                          title: provider.newsModel?.articles?[index].title ?? "",
                           description:
                               provider.newsModel?.articles?[index].description ??
                                   "",
-                          date:
-                              provider.newsModel?.articles?[index].publishedAt,
+                          date: provider.newsModel?.articles?[index].publishedAt,
                           imageUrl:
                               provider.newsModel?.articles?[index].urlToImage ??
                                   "",
-                          contant: provider.newsModel?.articles?[index].content ??
-                              "",
+                          contant:
+                              provider.newsModel?.articles?[index].content ?? "",
                           sourceName:
                               provider.newsModel?.articles?[index].source?.name ??
                                   "",
                           url: provider.newsModel?.articles?[index].url ?? ""),
-                      separatorBuilder: (context, index) => const Divider(height: 20),
+                      separatorBuilder: (context, index) =>
+                          const Divider(height: 20),
                       itemCount: provider.newsModel?.articles?.length ?? 0),
             )
           ],
         ),
-      )),
+      ),
     );
   }
 }

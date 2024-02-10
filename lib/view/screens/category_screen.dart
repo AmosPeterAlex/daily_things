@@ -13,6 +13,7 @@ class CategoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // Provider.of<CategoryScreenController>(context, listen: false).fetchData();
     // fetchData(context);
+    //evde actualyy fetchdata vilikenda kariyam undo
     CategoryScreenController provider =
         Provider.of<CategoryScreenController>(context);
     return DefaultTabController(
@@ -20,10 +21,11 @@ class CategoryScreen extends StatelessWidget {
       initialIndex: 0,
       child: Scaffold(
         appBar: AppBar(
+          //edh totally aa ui noki change akenm
           title: Text('Cateogory Screen'),
-          centerTitle: true,
+          // centerTitle: true,
           bottom: TabBar(
-            // labelPadding: EdgeInsets.symmetric(),
+            unselectedLabelColor: Colors.black54,
             tabAlignment: TabAlignment.center,
             physics: BouncingScrollPhysics(),
             tabs: List.generate(
@@ -42,7 +44,7 @@ class CategoryScreen extends StatelessWidget {
           builder: (context, value, child) {
             value.fetchData();
             return value.isLoading == false
-                ? CircularProgressIndicator()
+                ? Center(child: CircularProgressIndicator())
                 : ListView.separated(
                     itemCount: value.newsModel.articles?.length ?? 0,
                     itemBuilder: (BuildContext context, int index) => NewsCard(
