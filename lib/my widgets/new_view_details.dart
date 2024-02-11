@@ -15,7 +15,7 @@ class NewsViewScreen1 extends StatelessWidget {
       {super.key,
       required this.title,
       required this.description,
-      this.date,
+      required this.date,
       required this.imageUrl,
       required this.contant,
       required this.sourceName,
@@ -41,18 +41,17 @@ class NewsViewScreen1 extends StatelessWidget {
                 Container(
                   height: MediaQuery.sizeOf(context).height * .5,
                   // color: Colors.teal,
-                  // decoration: BoxDecoration(
-                  //     borderRadius: BorderRadiusDirectional.circular(10),
-                  //     image: DecorationImage(
-                  //         image: NetworkImage('imageUrl'), fit: BoxFit.cover)),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadiusDirectional.circular(10),
+                      image: DecorationImage(
+                          image: NetworkImage(imageUrl), fit: BoxFit.cover)),
                 ),
                 Positioned(
                   bottom: 60,
                   left: 10,
                   child: Text(
-                    'title',
-                    style: const TextStyle(
-                        fontSize: 25, fontWeight: FontWeight.w700),
+                    title,
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
                   ),
                 ),
                 Positioned(
@@ -61,9 +60,11 @@ class NewsViewScreen1 extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text('Date---')
+                      // Text('Date---'),
+                      Text(
+                          '${DateFormat('dd/MM/yyyy').format(date!).toString() ?? ""}')
                       // Text(
-                      //     "'sourceName' | ${DateFormat('dd/MM/yyyy').format('date'!).toString()}")
+                      //     "'sourceName' | ${DateFormat('dd/MM/yyyy').format(date!).toString()}")
                     ],
                   ),
                 ),
@@ -71,9 +72,8 @@ class NewsViewScreen1 extends StatelessWidget {
                   left: 10,
                   bottom: 30,
                   child: Text(
-                    'description',
-                    style: const TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.w500),
+                    description,
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                   ),
                 ),
                 Positioned(
@@ -139,16 +139,20 @@ class NewsViewScreen1 extends StatelessWidget {
                   // height: MediaQuery.of(context).size.height*.6,
                   // color: Colors.grey,
                   // clipBehavior: Clip.hardEdge,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Text('Souce name in bold'),
-                      Text(
-                        'contant\nm\nm\nm\nm\nm\nm\nm\nm\nm\nm\nm\t\nm\n\tm\nm\t\nm\n\tm\nm\nm\nm\nm\n\tm\nm\nm\nm\nm\nm\nm\nm\nm\nm\nm\nm\nm\nm\nm\nm\nm\nm\nm\nm\nm\nm\nm\nm\nm',
-                        style: const TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.w500),
-                      ),
-                    ],
+                  child: Padding(
+                    padding: const EdgeInsets.all(18.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Text(sourceName),
+                        SizedBox(height: 20,),
+                        Text(
+                          contant,
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

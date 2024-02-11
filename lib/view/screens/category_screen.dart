@@ -1,6 +1,7 @@
 import 'package:daily_things/controller/category_controller.dart';
 import 'package:daily_things/view/widgets/news_card.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class CategoryScreen extends StatelessWidget {
@@ -21,10 +22,32 @@ class CategoryScreen extends StatelessWidget {
       initialIndex: 0,
       child: Scaffold(
         appBar: AppBar(
-          //edh totally aa ui noki change akenm
-          title: Text('Cateogory Screen'),
-          // centerTitle: true,
+          toolbarHeight: 100,
+
+          title: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'category Things',
+                style: GoogleFonts.lato(
+                    color: Colors.black,
+                    fontSize: 28,
+                    fontWeight: FontWeight.w600),
+              ),
+              Text(
+                '\t\t\t\t\t\t\tselect ur things..',
+                style: GoogleFonts.lato(
+                    color: Colors.black,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    letterSpacing: 2),
+              )
+            ],
+          ),
+
           bottom: TabBar(
+            indicatorColor: Colors.lightBlueAccent,
+            overlayColor: MaterialStateProperty.all(Colors.lightBlueAccent),
             unselectedLabelColor: Colors.black54,
             tabAlignment: TabAlignment.center,
             physics: BouncingScrollPhysics(),

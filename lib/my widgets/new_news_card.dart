@@ -39,7 +39,7 @@ class NewsCard1 extends StatelessWidget {
                 imageUrl: imageUrl,
                 contant: contant,
                 sourceName: sourceName,
-                url: url)));
+                url: url, date: date,)));
       },
       onLongPress: () {
         String newsToShare = '$title\n $description \n$url';
@@ -49,7 +49,7 @@ class NewsCard1 extends StatelessWidget {
       child: Container(
         clipBehavior: Clip.hardEdge,
         height: devWidth / 3,
-        width: devWidth,
+        width: double.infinity,//new edit
         // padding: const EdgeInsets.all(2),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(13),
@@ -61,9 +61,7 @@ class NewsCard1 extends StatelessWidget {
               // color: Colors.red,
               height: devWidth / 3,
               width: devWidth / 3,
-              child: Center(
-                child: Text('Image'),
-              ),
+
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
@@ -77,28 +75,46 @@ class NewsCard1 extends StatelessWidget {
               children: [
                 Container(
                   height: devWidth * (2 / 3),
-                  width: devWidth * (2 / 3),
+                  width: devWidth*.6,
+                  // width: devWidth * (2 / 3),
                   // color: Colors.blue,
                 ),
 
                 // Text('Sourcename'),
                 Positioned(
-                  top: 5,
+                  top: 15,
+                  left: 10,
+                  // right: 1,
                   child: Text(
-                    maxLines: 5,
+                    // maxLines: 5,
                     title,
-                    style: const TextStyle(
+                    style:  TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
+                      letterSpacing: .8
+                    ),
+                  ),
+                ),  Positioned(
+                  top: 50,
+                  left: 10,
+                  // right: 1,
+                  child: Text(
+                    // maxLines: 5,
+                    description,
+                    style:  TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      letterSpacing: 1
                     ),
                   ),
                 ),
-                Positioned(bottom: 5, left: 1, child: Text(sourceName)),
-                Positioned(bottom: 5, left: 95, child: Text(sourceName)),
+                Positioned(bottom: 5, left: 10, child: Text(sourceName)),
+                // Positioned(bottom: 5, left: 95, child: Text(sourceName)),
                 //edh author kk vndi refractor chyanm or delete akenm
                 Positioned(
                     bottom: 5,
-                    right: 1,
+                    // left: 100,
+                    right: 10,
                     child: Text(
                         " ${DateFormat('dd/MM/yyyy').format(date!).toString() ?? ""}")),
               ],

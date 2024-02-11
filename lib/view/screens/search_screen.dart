@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../../controller/search_screen_controller.dart';
@@ -24,40 +25,48 @@ class _SearchScreenState extends State<SearchScreen> {
     SearchScreenController provider =
         Provider.of<SearchScreenController>(context);
     return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 100,
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'discover Things',
+              style: GoogleFonts.lato(
+                  color: Colors.black,
+                  fontSize: 28,
+                  fontWeight: FontWeight.w600),
+            ),
+            Text(
+              '\t\t\t\t\t\t search ur things..',
+              style: GoogleFonts.lato(
+                  color: Colors.black,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                  letterSpacing: 2),
+            )
+          ],
+        ),
+      ),
       body: SafeArea(
         child: Column(
           children: [
-            Text(
-              'Discover',
-              style: TextStyle(
-                  fontWeight: FontWeight.w700, letterSpacing: .2, fontSize: 30),
-            ),
-            Text(
-              'News from all around the Globe',
-              style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 12,
-                  letterSpacing: .4,
-                  wordSpacing: .1),
-            ),
             Row(
               // mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 SizedBox(
                   height: 45,
-                  width: MediaQuery.sizeOf(context).width * .64,
+                  width: MediaQuery.sizeOf(context).width * .74,
                   child: TextField(
                     controller: textController,
                     decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.grey[300],
                       prefixIcon: Icon(Icons.search),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide:
-                            const BorderSide(color: Color(0xff6A3DE8), width: 3),
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(25),
                       ),
                     ),
                   ),
@@ -92,22 +101,23 @@ class _SearchScreenState extends State<SearchScreen> {
                     )
                   : ListView.separated(
                       itemBuilder: (context, index) => NewsCard(
-                          title: provider.newsModel?.articles?[index].title ?? "",
+                          title:
+                              provider.newsModel?.articles?[index].title ?? "",
                           description:
                               provider.newsModel?.articles?[index].description ??
                                   "",
-                          date: provider.newsModel?.articles?[index].publishedAt,
+                          date:
+                              provider.newsModel?.articles?[index].publishedAt,
                           imageUrl:
                               provider.newsModel?.articles?[index].urlToImage ??
                                   "",
-                          contant:
-                              provider.newsModel?.articles?[index].content ?? "",
+                          contant: provider.newsModel?.articles?[index].content ??
+                              "",
                           sourceName:
                               provider.newsModel?.articles?[index].source?.name ??
                                   "",
                           url: provider.newsModel?.articles?[index].url ?? ""),
-                      separatorBuilder: (context, index) =>
-                          const Divider(height: 20),
+                      separatorBuilder: (context, index) => const Divider(height: 20),
                       itemCount: provider.newsModel?.articles?.length ?? 0),
             )
           ],
