@@ -28,18 +28,19 @@ class NewsCard1 extends StatelessWidget {
   Widget build(BuildContext context) {
     var devWidth = MediaQuery.of(context).size.width;
     return InkWell(
-      /// Sliver Screen vilikam
       /// onLongPress: share option evde akam,
       /// onTap: navigate to nxt page,
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => NewsViewScreen1(
-                title: title,
-                description: description,
-                imageUrl: imageUrl,
-                contant: contant,
-                sourceName: sourceName,
-                url: url, date: date,)));
+                  title: title,
+                  description: description,
+                  imageUrl: imageUrl,
+                  contant: contant,
+                  sourceName: sourceName,
+                  url: url,
+                  date: date,
+                ),),);
       },
       onLongPress: () {
         String newsToShare = '$title\n $description \n$url';
@@ -49,7 +50,8 @@ class NewsCard1 extends StatelessWidget {
       child: Container(
         clipBehavior: Clip.hardEdge,
         height: devWidth / 3,
-        width: double.infinity,//new edit
+        width: double.infinity,
+        //new edit
         // padding: const EdgeInsets.all(2),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(13),
@@ -75,7 +77,7 @@ class NewsCard1 extends StatelessWidget {
               children: [
                 Container(
                   height: devWidth * (2 / 3),
-                  width: devWidth*.6,
+                  width: devWidth * .6,
                   // width: devWidth * (2 / 3),
                   // color: Colors.blue,
                 ),
@@ -88,24 +90,23 @@ class NewsCard1 extends StatelessWidget {
                   child: Text(
                     // maxLines: 5,
                     title,
-                    style:  TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
-                      letterSpacing: .8
-                    ),
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: .8),
                   ),
-                ),  Positioned(
+                ),
+                Positioned(
                   top: 50,
                   left: 10,
                   // right: 1,
                   child: Text(
                     // maxLines: 5,
                     description,
-                    style:  TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      letterSpacing: 1
-                    ),
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        letterSpacing: 1),
                   ),
                 ),
                 Positioned(bottom: 5, left: 10, child: Text(sourceName)),

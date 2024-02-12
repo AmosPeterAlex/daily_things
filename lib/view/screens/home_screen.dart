@@ -29,67 +29,67 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     HomeScreenController provider = Provider.of<HomeScreenController>(context);
     return Scaffold(
-        appBar: AppBar(
-          title: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'daily Things',
-                style: GoogleFonts.lato(
-                    color: Colors.black,
-                    fontSize: 28,
-                    fontWeight: FontWeight.w700),
-              ),
-              Text(
-                '\t\t\t\t\t\t\tthings to think..',
-                style: GoogleFonts.lato(
-                    color: Colors.black,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    letterSpacing: 2),
-              )
-            ],
-          ),
-          toolbarHeight: 100,
+      appBar: AppBar(
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'daily Things',
+              style: GoogleFonts.lato(
+                  color: Colors.black,
+                  fontSize: 28,
+                  fontWeight: FontWeight.w700),
+            ),
+            Text(
+              '\t\t\t\t\t\t\tthings to think..',
+              style: GoogleFonts.lato(
+                  color: Colors.black,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                  letterSpacing: 2),
+            )
+          ],
         ),
-        body: Provider.of<HomeScreenController>(context).isLoading == true
-            ? Center(child: CircularProgressIndicator())
-            : SafeArea(
-                child: Padding(
-                    padding: EdgeInsets.all(5),
-                    child: ListView.separated(
-                        itemBuilder: (context, index) => NewsCard1(
-                              // some places it is ! and in some places it is ?
-                              title: provider.newsModel.articles![index].title
-                                  .toString(),
-                              // title: provider.newsModel.articles?[index].title
-                              //     .toString() ?? '',
-                              description: provider
-                                      .newsModel.articles?[index].description
-                                      .toString() ??
-                                  '',
-                              date: provider
-                                  .newsModel.articles![index].publishedAt,
-                              imageUrl: provider
-                                      .newsModel.articles?[index].urlToImage
-                                      .toString() ??
-                                  '',
-                              contant: provider
-                                      .newsModel.articles?[index].content
-                                      .toString() ??
-                                  '',
-                              sourceName: provider
-                                      .newsModel.articles?[index].source!.name
-                                      .toString() ??
-                                  '',
-                              url: provider.newsModel.articles?[index].url
-                                      .toString() ??
-                                  '',
-                            ),
-                        separatorBuilder: (context, index) => Divider(
-                              height: 20,
-                            ),
-                        itemCount: provider.newsModel.articles?.length ?? 0)),
-              ));
+        toolbarHeight: 100,
+      ),
+      body: Provider.of<HomeScreenController>(context).isLoading == true
+          ? Center(child: CircularProgressIndicator())
+          : SafeArea(
+              child: Padding(
+                padding: EdgeInsets.all(5),
+                child: ListView.separated(
+                    itemBuilder: (context, index) => NewsCard1(
+                          // some places it is ! and in some places it is ?
+                          title: provider.newsModel.articles![index].title
+                              .toString(),
+                          // title: provider.newsModel.articles?[index].title
+                          //     .toString() ?? '',
+                          description: provider
+                                  .newsModel.articles?[index].description
+                                  .toString() ??
+                              '',
+                          date: provider.newsModel.articles![index].publishedAt,
+                          imageUrl: provider
+                                  .newsModel.articles?[index].urlToImage
+                                  .toString() ??
+                              '',
+                          contant: provider.newsModel.articles?[index].content
+                                  .toString() ??
+                              '',
+                          sourceName: provider
+                                  .newsModel.articles?[index].source!.name
+                                  .toString() ??
+                              '',
+                          url: provider.newsModel.articles?[index].url
+                                  .toString() ??
+                              '',
+                        ),
+                    separatorBuilder: (context, index) => Divider(
+                          height: 20,
+                        ),
+                    itemCount: provider.newsModel.articles?.length ?? 0),
+              ),
+            ),
+    );
   }
 }

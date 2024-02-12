@@ -42,9 +42,10 @@ class NewsViewScreen1 extends StatelessWidget {
                   height: MediaQuery.sizeOf(context).height * .5,
                   // color: Colors.teal,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadiusDirectional.circular(10),
-                      image: DecorationImage(
-                          image: NetworkImage(imageUrl), fit: BoxFit.cover)),
+                    borderRadius: BorderRadiusDirectional.circular(10),
+                    image: DecorationImage(
+                        image: NetworkImage(imageUrl), fit: BoxFit.cover),
+                  ),
                 ),
                 Positioned(
                   bottom: 60,
@@ -77,75 +78,78 @@ class NewsViewScreen1 extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                    left: 20,
-                    top: 25,
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: CircleAvatar(
-                        backgroundColor: Colors.grey[400],
-                        child: Icon(
-                          CupertinoIcons.back,
-                          color: Colors.black,
-                        ),
+                  left: 20,
+                  top: 25,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: CircleAvatar(
+                      backgroundColor: Colors.grey[400],
+                      child: Icon(
+                        CupertinoIcons.back,
+                        color: Colors.black,
                       ),
-                    )),
+                    ),
+                  ),
+                ),
                 Positioned(
-                    top: 25,
-                    right: 70,
-                    child: InkWell(
-                      onTap: () {
-                        Provider.of<HomeScreenController>(context,
-                                listen: false)
-                            .launchURL(url);
-                      },
-                      child: CircleAvatar(
-                        backgroundColor: Colors.grey[400],
-                        child: Icon(
-                          CupertinoIcons.globe,
-                          color: Colors.black,
-                        ),
+                  top: 25,
+                  right: 70,
+                  child: InkWell(
+                    onTap: () {
+                      Provider.of<HomeScreenController>(context, listen: false)
+                          .launchURL(url);
+                    },
+                    child: CircleAvatar(
+                      backgroundColor: Colors.grey[400],
+                      child: Icon(
+                        CupertinoIcons.globe,
+                        color: Colors.black,
                       ),
-                    )),
+                    ),
+                  ),
+                ),
                 Positioned(
-                    top: 25,
-                    right: 15,
-                    child: InkWell(
-                      onTap: () {
-                        String newsToShare = '$title\n $description \n$url';
-                        Provider.of<HomeScreenController>(context,
-                                listen: false)
-                            .shareText(textToShare: newsToShare);
-                      },
-                      child: CircleAvatar(
-                        backgroundColor: Colors.grey[400],
-                        child: Icon(
-                          Icons.share,
-                          color: Colors.black,
-                        ),
+                  top: 25,
+                  right: 15,
+                  child: InkWell(
+                    onTap: () {
+                      String newsToShare = '$title\n $description \n$url';
+                      Provider.of<HomeScreenController>(context, listen: false)
+                          .shareText(textToShare: newsToShare);
+                    },
+                    child: CircleAvatar(
+                      backgroundColor: Colors.grey[400],
+                      child: Icon(
+                        Icons.share,
+                        color: Colors.black,
                       ),
-                    ))
+                    ),
+                  ),
+                )
               ],
             ),
             SingleChildScrollView(
               child: ClipRRect(
                 borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(25),
-                    topLeft: Radius.circular(25)),
+                  topRight: Radius.circular(25),
+                  topLeft: Radius.circular(25),
+                ),
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   // height: double.infinity,
                   // height: MediaQuery.of(context).size.height*.6,
-                  // color: Colors.grey,
-                  // clipBehavior: Clip.hardEdge,
+
                   child: Padding(
                     padding: const EdgeInsets.all(18.0),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Text(sourceName),
-                        SizedBox(height: 20,),
+                        SizedBox(
+                          height: 20,
+                        ),
                         Text(
                           contant,
                           style: TextStyle(
