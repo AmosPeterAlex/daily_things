@@ -25,6 +25,7 @@ class _SearchScreenState extends State<SearchScreen> {
     SearchScreenController provider =
         Provider.of<SearchScreenController>(context);
     return Scaffold(
+      //extendBody: true,
       appBar: AppBar(
         toolbarHeight: 100,
         title: Column(
@@ -62,8 +63,8 @@ class _SearchScreenState extends State<SearchScreen> {
                     controller: textController,
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: Colors.grey[300],
-                      prefixIcon: Icon(Icons.search),
+                      fillColor: Color(0xffF9E8C9),
+                      prefixIcon: Icon(Icons.search,color: Color(0xff1D24CA),size: 26,),
                       border: OutlineInputBorder(
                         borderSide: BorderSide.none,
                         borderRadius: BorderRadius.circular(25),
@@ -83,11 +84,11 @@ class _SearchScreenState extends State<SearchScreen> {
                   },
                   child: Text(
                     "Search",
-                    style: TextStyle(color: Colors.white, fontSize: 13),
+                    style: TextStyle(color: Color(0xffF9E8C9), fontSize: 15),
                   ),
                   style: ButtonStyle(
                     backgroundColor: MaterialStatePropertyAll(
-                      Color(0xff6A3DE8),
+                      Color(0xff1D24CA),
                     ),
                   ),
                 )

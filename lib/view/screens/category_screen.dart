@@ -46,9 +46,9 @@ class CategoryScreen extends StatelessWidget {
           ),
 
           bottom: TabBar(
-            indicatorColor: Colors.lightBlueAccent,
-            overlayColor: MaterialStateProperty.all(Colors.lightBlueAccent),
-            unselectedLabelColor: Colors.black54,
+            indicatorColor: Color(0xff1D24CA),
+            overlayColor: MaterialStateProperty.all(Color(0xff98ABEE)),
+            unselectedLabelColor: Color(0xff98ABEE),
             tabAlignment: TabAlignment.center,
             physics: BouncingScrollPhysics(),
             tabs: List.generate(
@@ -89,7 +89,7 @@ class CategoryScreen extends StatelessWidget {
                             '',
                         url: value.newsModel.articles?[index].url.toString() ?? ''),
                     separatorBuilder: (BuildContext context, int index) =>
-                        Divider(height: 10),
+                        Divider(height: 18,color: Color(0xff201658),),
                   );
           },
         ),

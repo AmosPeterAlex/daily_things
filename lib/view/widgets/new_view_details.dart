@@ -2,14 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
+import '../../controller/home_screen_controller.dart';
 
-import '../controller/home_screen_controller.dart';
-
-// import '../../controller/home_screen_controller.dart';
-
-/*
-This Screen appears when each news is clicked
- */
 class NewsViewScreen1 extends StatelessWidget {
   const NewsViewScreen1(
       {super.key,
@@ -48,28 +42,6 @@ class NewsViewScreen1 extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  bottom: 60,
-                  left: 10,
-                  child: Text(
-                    title,
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
-                  ),
-                ),
-                Positioned(
-                  left: 10,
-                  bottom: 5,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      // Text('Date---'),
-                      Text(
-                          '${DateFormat('dd/MM/yyyy').format(date!).toString() ?? ""}')
-                      // Text(
-                      //     "'sourceName' | ${DateFormat('dd/MM/yyyy').format(date!).toString()}")
-                    ],
-                  ),
-                ),
-                Positioned(
                   left: 10,
                   bottom: 30,
                   child: Text(
@@ -84,11 +56,14 @@ class NewsViewScreen1 extends StatelessWidget {
                     onTap: () {
                       Navigator.pop(context);
                     },
-                    child: CircleAvatar(
-                      backgroundColor: Colors.grey[400],
-                      child: Icon(
-                        CupertinoIcons.back,
-                        color: Colors.black,
+                    child: Tooltip(
+                      message: 'Back',
+                      child: CircleAvatar(
+                        backgroundColor: Colors.grey[400],
+                        child: Icon(
+                          CupertinoIcons.back,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                   ),
@@ -101,11 +76,14 @@ class NewsViewScreen1 extends StatelessWidget {
                       Provider.of<HomeScreenController>(context, listen: false)
                           .launchURL(url);
                     },
-                    child: CircleAvatar(
-                      backgroundColor: Colors.grey[400],
-                      child: Icon(
-                        CupertinoIcons.globe,
-                        color: Colors.black,
+                    child: Tooltip(
+                      message: 'Go to Website',
+                      child: CircleAvatar(
+                        backgroundColor: Colors.grey[400],
+                        child: Icon(
+                          CupertinoIcons.globe,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                   ),
@@ -119,16 +97,44 @@ class NewsViewScreen1 extends StatelessWidget {
                       Provider.of<HomeScreenController>(context, listen: false)
                           .shareText(textToShare: newsToShare);
                     },
-                    child: CircleAvatar(
-                      backgroundColor: Colors.grey[400],
-                      child: Icon(
-                        Icons.share,
-                        color: Colors.black,
+                    child: Tooltip(
+                      message: 'Share news',
+                      child: CircleAvatar(
+                        backgroundColor: Colors.grey[400],
+                        child: Icon(
+                          Icons.share,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                   ),
                 )
               ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                      '${DateFormat('dd/MM/yyyy').format(date!).toString() ?? ""}'),
+                  Text(sourceName)
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0, right: 8),
+              child: Text(
+                title,
+                style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.black),
+              ),
             ),
             SingleChildScrollView(
               child: ClipRRect(
@@ -136,45 +142,19 @@ class NewsViewScreen1 extends StatelessWidget {
                   topRight: Radius.circular(25),
                   topLeft: Radius.circular(25),
                 ),
-                child: Container(
+                child: SizedBox(
                   width: MediaQuery.of(context).size.width,
-                  // height: double.infinity,
-                  // height: MediaQuery.of(context).size.height*.6,
-
                   child: Padding(
                     padding: const EdgeInsets.all(18.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Text(sourceName),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          contant,
-                          style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.w500),
-                        ),
-                      ],
+                    child: Text(
+                      contant,
+                      style:
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
                     ),
                   ),
                 ),
               ),
             ),
-
-            // InkWell(edh url pole oru icon il pidich fully idam
-            //   // onTap: () {
-            //   //   Provider.of<HomeScreenController>(context, listen: false)
-            //   //       .launchURL(url);
-            //   // },
-            //   child: const Text(
-            //     "Click here to Read more",
-            //     style: TextStyle(
-            //         fontSize: 15,
-            //         fontStyle: FontStyle.italic,
-            //         color: Colors.blue),
-            //   ),
-            // ),
           ],
         ),
       ),

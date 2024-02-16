@@ -1,9 +1,9 @@
-import 'package:daily_things/my%20widgets/new_view_details.dart';
+import 'package:daily_things/view/widgets/new_view_details.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
-import '../controller/home_screen_controller.dart';
+import '../../controller/home_screen_controller.dart';
 
 class NewsCard1 extends StatelessWidget {
   const NewsCard1(
@@ -75,11 +75,10 @@ class NewsCard1 extends StatelessWidget {
             ),
             Stack(
               children: [
-                Container(
+                SizedBox(
                   height: devWidth * (2 / 3),
                   width: devWidth * .6,
-                  // width: devWidth * (2 / 3),
-                  // color: Colors.blue,
+
                 ),
 
                 // Text('Sourcename'),

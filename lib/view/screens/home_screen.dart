@@ -1,5 +1,5 @@
 import 'package:daily_things/controller/home_screen_controller.dart';
-import 'package:daily_things/my%20widgets/new_news_card.dart';
+import 'package:daily_things/view/widgets/new_news_card.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -29,6 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     HomeScreenController provider = Provider.of<HomeScreenController>(context);
     return Scaffold(
+      extendBody: true,
       appBar: AppBar(
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
         toolbarHeight: 100,
       ),
       body: Provider.of<HomeScreenController>(context).isLoading == true
-          ? Center(child: CircularProgressIndicator())
+          ? Center(child: CircularProgressIndicator(color: Color(0xff201658),))
           : SafeArea(
               child: Padding(
                 padding: EdgeInsets.all(5),
@@ -85,7 +86,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               '',
                         ),
                     separatorBuilder: (context, index) => Divider(
-                          height: 20,
+                          height: 15,
+                      color: Color(0xff201658),
                         ),
                     itemCount: provider.newsModel.articles?.length ?? 0),
               ),

@@ -1,5 +1,5 @@
 import 'package:daily_things/controller/home_screen_controller.dart';
-import 'package:daily_things/my%20widgets/new_view_details.dart';
+import 'package:daily_things/view/widgets/new_view_details.dart';
 import 'package:daily_things/view/widgets/view_details.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';

@@ -1,21 +1,22 @@
-import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:daily_things/controller/bottom_nav_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 class MainPage extends StatelessWidget {
   // const MainPage({super.key});
 
-
   @override
   Widget build(BuildContext context) {
-    final controller = NotchBottomBarController(
-        index: Provider.of<BottomNavController>(context).selectedIndex);
+    // final controller = NotchBottomBarController(
+    //     index: Provider.of<BottomNavController>(context).selectedIndex);
     return Scaffold(
+      extendBody: true,
       body: Provider.of<BottomNavController>(context)
           .myPages[Provider.of<BottomNavController>(context).selectedIndex],
-      //Bottomnavigation bar fluttergems il ninu eduth idenm
+
       // bottomNavigationBar: AnimatedNotchBottomBar(
+      //     showShadow: true,
       //     showLabel: false,
       //     notchBottomBarController: controller,
       //     bottomBarItems: [
@@ -56,19 +57,38 @@ class MainPage extends StatelessWidget {
       //     onTap: Provider.of<BottomNavController>(context).onItemTap,
       //     kIconSize: 24,
       //     kBottomRadius: 20),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: Provider.of<BottomNavController>(context).selectedIndex,
-        onTap:
-            Provider.of<BottomNavController>(context, listen: false).onItemTap,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.category), label: 'Category'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
-        ],
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(bottom: 10, right: 10, left: 10),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(50),
+          child: BottomNavigationBar(
+            currentIndex:
+                Provider.of<BottomNavController>(context).selectedIndex,
+            backgroundColor: Color(0xffF9E8C9),
+            selectedIconTheme: IconThemeData(color: Color(0xff1D24CA)),
+            unselectedIconTheme: IconThemeData(color: Color(0xff98ABEE)),
+            onTap: Provider.of<BottomNavController>(context, listen: false)
+                .onItemTap,
+            unselectedLabelStyle: TextStyle(color: Color(0xff201658)),
+            unselectedFontSize: 17,
+            showSelectedLabels: false,
+            items: const [
+              BottomNavigationBarItem(
+                  icon: FaIcon(FontAwesomeIcons.houseCrack),
+                  label: 'Home',
+                  activeIcon: FaIcon(FontAwesomeIcons.house)),
+              BottomNavigationBarItem(
+                  icon: FaIcon(FontAwesomeIcons.icons),
+                  label: 'Category',
+                  activeIcon: FaIcon(FontAwesomeIcons.list)),
+              BottomNavigationBarItem(
+                  icon: FaIcon(FontAwesomeIcons.magnifyingGlass),
+                  label: 'Search',
+                  activeIcon: FaIcon(FontAwesomeIcons.searchengin)),
+            ],
+          ),
+        ),
       ),
     );
   }
 }
-/*
-Hide This Bottom Nav Bar on Scroll
- */
