@@ -6,7 +6,7 @@ import '../../controller/search_screen_controller.dart';
 import '../widgets/news_card.dart';
 
 class SearchScreen extends StatefulWidget {
-  // const SearchScreen({super.key});
+  const SearchScreen({super.key});
 
   @override
   State<SearchScreen> createState() => _SearchScreenState();
@@ -63,8 +63,8 @@ class _SearchScreenState extends State<SearchScreen> {
                     controller: textController,
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: Color(0xffF9E8C9),
-                      prefixIcon: Icon(Icons.search,color: Color(0xff1D24CA),size: 26,),
+                      fillColor: const Color(0xffF9E8C9),
+                      prefixIcon: const Icon(Icons.search,color: Color(0xff1D24CA),size: 26,),
                       border: OutlineInputBorder(
                         borderSide: BorderSide.none,
                         borderRadius: BorderRadius.circular(25),
@@ -82,14 +82,14 @@ class _SearchScreenState extends State<SearchScreen> {
                     );
                     FocusManager.instance.primaryFocus?.unfocus();
                   },
-                  child: Text(
-                    "Search",
-                    style: TextStyle(color: Color(0xffF9E8C9), fontSize: 15),
-                  ),
-                  style: ButtonStyle(
+                  style: const ButtonStyle(
                     backgroundColor: MaterialStatePropertyAll(
                       Color(0xff1D24CA),
                     ),
+                  ),
+                  child: const Text(
+                    "Search",
+                    style: TextStyle(color: Color(0xffF9E8C9), fontSize: 15),
                   ),
                 )
               ],
@@ -97,7 +97,7 @@ class _SearchScreenState extends State<SearchScreen> {
             Expanded(
               child: Provider.of<SearchScreenController>(context).isLoading ==
                       true
-                  ? Center(
+                  ? const Center(
                       child: CircularProgressIndicator(),
                     )
                   : ListView.separated(

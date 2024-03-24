@@ -46,7 +46,7 @@ class NewsViewScreen1 extends StatelessWidget {
                   bottom: 30,
                   child: Text(
                     description,
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                   ),
                 ),
                 Positioned(
@@ -60,7 +60,7 @@ class NewsViewScreen1 extends StatelessWidget {
                       message: 'Back',
                       child: CircleAvatar(
                         backgroundColor: Colors.grey[400],
-                        child: Icon(
+                        child: const Icon(
                           CupertinoIcons.back,
                           color: Colors.black,
                         ),
@@ -80,7 +80,7 @@ class NewsViewScreen1 extends StatelessWidget {
                       message: 'Go to Website',
                       child: CircleAvatar(
                         backgroundColor: Colors.grey[400],
-                        child: Icon(
+                        child: const Icon(
                           CupertinoIcons.globe,
                           color: Colors.black,
                         ),
@@ -101,7 +101,7 @@ class NewsViewScreen1 extends StatelessWidget {
                       message: 'Share news',
                       child: CircleAvatar(
                         backgroundColor: Colors.grey[400],
-                        child: Icon(
+                        child: const Icon(
                           Icons.share,
                           color: Colors.black,
                         ),
@@ -123,14 +123,14 @@ class NewsViewScreen1 extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Padding(
               padding: const EdgeInsets.only(left: 8.0, right: 8),
               child: Text(
                 title,
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.w700,
                     color: Colors.black),
@@ -138,7 +138,7 @@ class NewsViewScreen1 extends StatelessWidget {
             ),
             SingleChildScrollView(
               child: ClipRRect(
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                   topRight: Radius.circular(25),
                   topLeft: Radius.circular(25),
                 ),
@@ -149,7 +149,7 @@ class NewsViewScreen1 extends StatelessWidget {
                     child: Text(
                       contant,
                       style:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+                          const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
                     ),
                   ),
                 ),
