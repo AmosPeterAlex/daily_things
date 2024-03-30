@@ -40,7 +40,7 @@ class HomeScreenController with ChangeNotifier {
     }
     notifyListeners();
   }
-  //doubt
+
   Future<void> launchURL(String url) async {
     try {
       if (await canLaunchUrl(Uri.parse(url))) {

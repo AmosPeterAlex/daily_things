@@ -4,9 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../../controller/home_screen_controller.dart';
 
-/*
-This Screen appears when each news is clicked
- */
+
 class NewsViewScreen extends StatelessWidget {
   const NewsViewScreen(
       {super.key,
