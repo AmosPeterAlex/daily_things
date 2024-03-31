@@ -34,7 +34,6 @@ class NewsViewScreen1 extends StatelessWidget {
               children: [
                 Container(
                   height: MediaQuery.sizeOf(context).height * .5,
-                  // color: Colors.teal,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadiusDirectional.circular(10),
                     image: DecorationImage(
@@ -46,7 +45,8 @@ class NewsViewScreen1 extends StatelessWidget {
                   bottom: 30,
                   child: Text(
                     description,
-                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.w500),
                   ),
                 ),
                 Positioned(
@@ -148,8 +148,8 @@ class NewsViewScreen1 extends StatelessWidget {
                     padding: const EdgeInsets.all(18.0),
                     child: Text(
                       contant,
-                      style:
-                          const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+                      style: const TextStyle(
+                          fontSize: 15, fontWeight: FontWeight.w500),
                     ),
                   ),
                 ),

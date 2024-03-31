@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(  MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -37,3 +37,10 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+/*
+TODO
+color constants add
+shimmer effect add
+null  ile red error fully remove-- category screen il
+
+ */

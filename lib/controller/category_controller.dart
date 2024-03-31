@@ -93,7 +93,6 @@ class CategoryScreenController with ChangeNotifier {
     // No notifyListeners() here
     final url = Uri.parse(
         'https://newsapi.org/v2/top-headlines?country=in&category=$category&apiKey=a437c47fc99d4a249ced37151a9199d5');
-    // 'https://newsapi.org/v2/top-headlines?country=ca&apiKey=a437c47fc99d4a249ced37151a9199d5');
     print(category);
     final response = await http.get(url);
     print(response.statusCode);
