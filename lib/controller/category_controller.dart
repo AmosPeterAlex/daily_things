@@ -105,13 +105,14 @@ class CategoryScreenController with ChangeNotifier {
     }
     newsModel = NewsModel.fromJson(decodedData);
     isLoading = false;
-    // Schedule notifyListeners() to be called after the build phase completes
-    // This ensures it's not called during the build cycle
     Future.delayed(Duration.zero, () {
       notifyListeners();
     });
   }
 }
+/*
+e page fully onnu irunn paniyenm
+ */
 
 
 
