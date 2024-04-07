@@ -54,13 +54,16 @@ class _HomeScreenState extends State<HomeScreen> {
         toolbarHeight: 100,
       ),
       body: Provider.of<HomeScreenController>(context).isLoading == true
-          ? const Center(child: CircularProgressIndicator(color: Color(0xff201658),))
+          ? const Center(
+              child: CircularProgressIndicator(
+                color: Color(0xff201658),
+              ),
+            )
           : SafeArea(
               child: Padding(
                 padding: const EdgeInsets.all(5),
                 child: ListView.separated(
                     itemBuilder: (context, index) => NewsCard1(
-                          // some places it is ! and in some places it is ?
                           title: provider.newsModel.articles![index].title
                               .toString(),
                           // title: provider.newsModel.articles?[index].title
@@ -87,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                     separatorBuilder: (context, index) => const Divider(
                           height: 15,
-                      color: Color(0xff201658),
+                          color: Color(0xff201658),
                         ),
                     itemCount: provider.newsModel.articles?.length ?? 0),
               ),
