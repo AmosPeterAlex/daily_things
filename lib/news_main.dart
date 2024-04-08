@@ -42,5 +42,4 @@ TODO
 color constants add
 shimmer effect add
 null  ile red error fully remove-- category screen il
-
  */

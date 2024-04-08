@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 
 import '../../controller/home_screen_controller.dart';
 
-
 class NewsViewScreen extends StatelessWidget {
   const NewsViewScreen(
       {super.key,
@@ -28,8 +27,6 @@ class NewsViewScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // backgroundColor: Colors.red,
-        // elevation: 5,
         iconTheme: const IconThemeData(color: Color(0xff6A3DE8), size: 30),
       ),
       body: Padding(

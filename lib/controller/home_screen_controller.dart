@@ -13,10 +13,10 @@ class HomeScreenController with ChangeNotifier {
     isLoading = true;
     notifyListeners();
     final url = Uri.parse(
-      'https://newsapi.org/v2/everything?q=Apple&from=2024-02-15&sortBy=popularity&apiKey=a437c47fc99d4a249ced37151a9199d5');
-      // 'https://newsapi.org/v2/everything?q=Apple&from=2024-02-16&sortBy=popularity&apiKey=a437c47fc99d4a249ced37151a9199d5');
-      // 'https://newsapi.org/v2/everything?q=Apple&from=2024-02-10&sortBy=popularity&apiKey=a437c47fc99d4a249ced37151a9199d5');
-        // 'https://newsapi.org/v2/everything?q=Apple&from=2024-02-08&sortBy=popularity&apiKey=');
+        'https://newsapi.org/v2/everything?q=Apple&from=2024-02-15&sortBy=popularity&apiKey=a437c47fc99d4a249ced37151a9199d5');
+    // 'https://newsapi.org/v2/everything?q=Apple&from=2024-02-16&sortBy=popularity&apiKey=a437c47fc99d4a249ced37151a9199d5');
+    // 'https://newsapi.org/v2/everything?q=Apple&from=2024-02-10&sortBy=popularity&apiKey=a437c47fc99d4a249ced37151a9199d5');
+    // 'https://newsapi.org/v2/everything?q=Apple&from=2024-02-08&sortBy=popularity&apiKey=');
     final response = await http.get(url);
     print(response.statusCode);
     Map<String, dynamic> decodedData = {}; //Map for storing
@@ -40,7 +40,8 @@ class HomeScreenController with ChangeNotifier {
     }
     notifyListeners();
   }
-
+  
+  //function to launch url
   Future<void> launchURL(String url) async {
     try {
       if (await canLaunchUrl(Uri.parse(url))) {
