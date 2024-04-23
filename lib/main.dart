@@ -42,4 +42,6 @@ TODO
 color constants add
 shimmer effect add
 null  ile red error fully remove-- category screen il
+search page ile search maty search bar akenm
+color hunt il ninu new coor theme pidikenm
  */

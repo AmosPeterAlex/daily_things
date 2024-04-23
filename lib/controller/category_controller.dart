@@ -105,9 +105,10 @@ class CategoryScreenController with ChangeNotifier {
     }
     newsModel = NewsModel.fromJson(decodedData);
     isLoading = false;
-    Future.delayed(Duration.zero, () {
-      notifyListeners();
-    });
+    notifyListeners();
+    // Future.delayed(Duration.zero, () {
+    //   notifyListeners();
+    // });
   }
 }
 /*
